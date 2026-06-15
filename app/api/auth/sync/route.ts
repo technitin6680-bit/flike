@@ -1,0 +1,23 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { adminAuth } from '@/lib/firebase-admin';
+import { getOrCreateUser } from '@/src/db/users';
+
+export async function POST(req: NextRequest) {
+  try {
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const token = authHeader.split('Bearer ')[1];
+    const decodedToken = await adminAuth.verifyIdToken(token);
+    
+    // Sync user to database
+    const user = await getOrCreateUser(decodedToken.uid, decodedToken.email || '');
+
+    return NextResponse.json({ success: true, user });
+  } catch (error) {
+    console.error('Auth sync error:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  }
+}

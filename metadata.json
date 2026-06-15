@@ -1,0 +1,6 @@
+{
+  "name": "Flike",
+  "description": "A website-ordering platform where clients can request custom websites, view estimated pricing, and track project progress.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
