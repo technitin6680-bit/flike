@@ -1,17 +1,9 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyD4knTo2TOgCODhSoyqK_JyWMbfCs1tK60",
-  authDomain: "flike-4898d.firebaseapp.com",
-  projectId: "flike-4898d",
-  storageBucket: "flike-4898d.firebasestorage.app",
-  messagingSenderId: "453450805952",
-  appId: "1:453450805952:web:38bdaa0ffaaa39f925f325"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+{
+  "projectId": "flike-4898d",
+  "appId": "1:453450805952:web:38bdaa0ffaa39f925f325",
+  "apiKey": "AIzaSyD4knTo2TOgC0DhSoyqK_JywMbfCs1tK60",
+  "authDomain": "flike-4898d.firebaseapp.com",
+  "storageBucket": "flike-4898d.firebasestorage.app",
+  "messagingSenderId": "453450805952",
+  "measurementId": ""
+}
