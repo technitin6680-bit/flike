@@ -10,21 +10,14 @@ export interface AuthSession {
 
 export async function requireAuth(req: NextRequest): Promise<AuthSession | NextResponse> {
   try {
-    const dbUserResults = await db
-      .select()
-      .from(users)
-      .where(eq(users.uid, 'test-user'));
-
-    if (!dbUserResults.length) {
-      return NextResponse.json(
-        { error: 'Test user not found in db' },
-        { status: 401 }
-      );
-    }
-
     return {
       token: { uid: 'test-user' },
-      dbUser: dbUserResults[0],
+      dbUser: {
+        id: 1,
+        uid: 'test-user',
+        email: 'test@example.com',
+        role: 'client'
+      } as any,
     };
   } catch (error) {
     console.error('Auth error', error);
